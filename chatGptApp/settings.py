@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-hqax&&4#wjw2gb3tx8yrjsg0e3uniy8=2t_is8_r_slzbfb-iy
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost","127.0.0.1", "137.184.120.196"]
+ALLOWED_HOSTS = ["localhost","127.0.0.1", "137.184.120.196", "hammerhead-app-85ldn.ondigitalocean.app"]
 
 
 
@@ -128,9 +128,14 @@ STATIC_URL = 'static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static_files'),
-]
+if DEBUG:
+    STATICFILES_DIRS = [
+        os.path.join(BASE_DIR, 'static_files'),
+    ]
+else:
+    STATICFILES_DIRS = [
+        '/root/Ubiquitous_demo/static_files',
+    ]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
